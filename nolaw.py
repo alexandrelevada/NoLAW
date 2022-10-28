@@ -230,21 +230,21 @@ def psnr(original, contrast):
 # Loading data
 ###############################
 # .txt files
-#sinal = np.loadtxt('../daily_female_births.txt')			
-#sinal = np.loadtxt('../bovespa.txt')					
-#sinal = np.loadtxt('../dolar.txt')					
-#sinal = np.loadtxt('../CO2_Canada.txt')				
-#sinal = np.loadtxt('../seatbelts.txt')					
-#sinal = np.loadtxt('../beer.txt')						
-sinal = np.loadtxt('../MinTemp.txt')					
-#sinal = np.loadtxt('../shampoo.txt')					
+#sinal = np.loadtxt('daily_female_births.txt')			
+sinal = np.loadtxt('bovespa.txt')					
+#sinal = np.loadtxt('dolar.txt')					
+#sinal = np.loadtxt('CO2_Canada.txt')				
+#sinal = np.loadtxt('seatbelts.txt')					
+#sinal = np.loadtxt('beer.txt')						
+#sinal = np.loadtxt('MinTemp.txt')					
+#sinal = np.loadtxt('shampoo.txt')					
 
 # .cvs files
-#data = pandas.read_csv('../Cali Emissions.csv')			
-#data = pandas.read_csv('../Nuclear Capacity.csv')			
-#data = pandas.read_csv('../monthly-sunspots.csv')			
-#data = pandas.read_csv('../ETTh1.csv')		 # Electricity Transformer Dataset: last column (index -1) 
-#data = pandas.read_csv('../ETTh2.csv')		 # Electricity Transformer Dataset: first column (index 1) 
+#data = pandas.read_csv('Cali Emissions.csv')			
+#data = pandas.read_csv('Nuclear Capacity.csv')			
+#data = pandas.read_csv('monthly-sunspots.csv')			
+#data = pandas.read_csv('ETTh1.csv')		 # Electricity Transformer Dataset: last column (index -1) 
+#data = pandas.read_csv('ETTh2.csv')		 # Electricity Transformer Dataset: first column (index 1) 
 
 # if the time series is a pandas dataframe, we need to convert it to a numpy array
 #sinal = data.iloc[:, -1].to_numpy()
@@ -374,74 +374,74 @@ df1 = pd.DataFrame(dict(
 #fig1 = px.line(df1, width=800, height=600).update_layout(xaxis_title='samples', yaxis_title='time series')
 fig1 = px.line(df1, width=800, height=600, title='Original').update_layout(showlegend=False)
 #fig.show()
-fig1.write_image('./graficos/original.png')
+fig1.write_image('original.png')
 
 df2 = pd.DataFrame(dict(
      noisy = sinal_r,
 ))
 #fig2 = px.line(df2, width=800, height=600).update_layout(xaxis_title='samples', yaxis_title='time series')
 fig2 = px.line(df2, width=800, height=600, title='Noisy').update_layout(showlegend=False)
-fig2.write_image('./graficos/noisy.png')
+fig2.write_image('noisy.png')
 
 df3 = pd.DataFrame(dict(
      gaussian = gaussian_smooth,
 ))
 #fig3 = px.line(df3, width=800, height=600).update_layout(xaxis_title='samples', yaxis_title='time series')
 fig3 = px.line(df3, width=800, height=600, title='Gaussian filter').update_layout(showlegend=False)
-fig3.write_image('./graficos/gaussian.png')
+fig3.write_image('gaussian.png')
 
 df4 = pd.DataFrame(dict(
      exponential = ses_smooth,
 ))
 #fig4 = px.line(df4, width=800, height=600).update_layout(xaxis_title='samples', yaxis_title='time series')
 fig4 = px.line(df4, width=800, height=600, title='Simple Exponential Smoothing').update_layout(showlegend=False)
-fig4.write_image('./graficos/exponential.png')
+fig4.write_image('exponential.png')
 
 df5 = pd.DataFrame(dict(
      holt = holt_smooth,
 ))
 #fig5 = px.line(df5, width=800, height=600).update_layout(xaxis_title='samples', yaxis_title='time series')
 fig5 = px.line(df5, width=800, height=600, title='Holt Winters method').update_layout(showlegend=False)
-fig5.write_image('./graficos/holt.png')
+fig5.write_image('holt.png')
 
 df6 = pd.DataFrame(dict(
      wiener = wiener_smooth_1,
 ))
 #fig6 = px.line(df6, width=800, height=600).update_layout(xaxis_title='samples', yaxis_title='time series')
 fig6 = px.line(df6, width=800, height=600, title='Linear Wiener (first-order neighborhood)').update_layout(showlegend=False)
-fig6.write_image('./graficos/linear_wiener_1.png')
+fig6.write_image('linear_wiener_1.png')
 
 df7 = pd.DataFrame(dict(
      wiener = wiener_smooth_2,
 ))
 #fig7 = px.line(df7, width=800, height=600).update_layout(xaxis_title='samples', yaxis_title='time series')
 fig7 = px.line(df7, width=800, height=600, title='Linear Wiener (second-order neighborhood)').update_layout(showlegend=False)
-fig7.write_image('./graficos/linear_wiener_2.png')
+fig7.write_image('linear_wiener_2.png')
 
 df8 = pd.DataFrame(dict(
      wiener = wiener_smooth_3,
 ))
 #fig8 = px.line(df8, width=800, height=600).update_layout(xaxis_title='samples', yaxis_title='time series')
 fig8 = px.line(df8, width=800, height=600, title='Linear Wiener (third-order neighborhood)').update_layout(showlegend=False)
-fig8.write_image('./graficos/linear_wiener_3.png')
+fig8.write_image('linear_wiener_3.png')
 
 df9 = pd.DataFrame(dict(
      cubic_wiener = cubic_wiener_smooth_1,
 ))
 #fig9 = px.line(df9, width=800, height=600).update_layout(xaxis_title='samples', yaxis_title='time series')
 fig9 = px.line(df9, width=800, height=600, title='Cubic NoLAW (first-order neighborhood)').update_layout(showlegend=False)
-fig9.write_image('./graficos/cubic_wiener_1.png')
+fig9.write_image('cubic_wiener_1.png')
 
 df10 = pd.DataFrame(dict(
      cubic_wiener = cubic_wiener_smooth_2,
 ))
 #fig10 = px.line(df10, width=800, height=600).update_layout(xaxis_title='samples', yaxis_title='time series')
 fig10 = px.line(df10, width=800, height=600, title='Cubic NoLAW (second-order neighborhood)').update_layout(showlegend=False)
-fig10.write_image('./graficos/cubic_wiener_2.png')
+fig10.write_image('cubic_wiener_2.png')
 
 df11 = pd.DataFrame(dict(
      cubic_wiener = cubic_wiener_smooth_3,
 ))
 #fig11 = px.line(df11, width=800, height=600).update_layout(xaxis_title='samples', yaxis_title='time series')
 fig11 = px.line(df11, width=800, height=600, title='Cubic NoLAW (third-order neighborhood)').update_layout(showlegend=False)
-fig11.write_image('./graficos/cubic_wiener_3.png')
+fig11.write_image('cubic_wiener_3.png')
